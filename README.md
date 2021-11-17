@@ -1,26 +1,11 @@
-# 如何构建该网站
+
+This repos is the source code of our web-server [root atlas](http://wanglab.sippe.ac.cn/rootatlas/)
+
+> 这个github仓库记录的是我们网站的源代码
 
 
-## 数据准备
+If these code is helpful to your project, please cite we paer
 
-构建拟南芥的基因名和别名的对应关系(数据来源: <https://zenodo.org/record/2530282>)
+> 如果你觉得代码对你帮助，请引用我们的文章
 
-```R
-alias_df <- fread("data/gene_aliases_20171231.txt")
-saveRDS(alias_df, "data/alias_data_frame.rds")
-```
-
-构建基因ID列表
-
-```bash
-grep '[[:blank:]]gene[[:blank:]]' Araport11_GFF3_genes_transposons.gff   | cut -f 9 | cut -d ';' -f 1 | cut -d '=' -f 2 | grep -v '\.' | uniq | sort  -V > gene_list.txt
-```
-
-之后导入R语言，保存为Rdata
-
-```bash
-gene_df <- readLines("data/gene_list.txt")
-saveRDS(gene_df, "data/gene_list.rds")
-```
-
-
+Zhang, T.-Q., Xu, Z.-G., Shang, G.-D., and Wang, J.-W. (2019). A Single-Cell RNA Sequencing Profiles the Developmental Landscape of Arabidopsis Root. Molecular Plant 12, 648–660.
